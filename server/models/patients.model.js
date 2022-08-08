@@ -12,19 +12,26 @@ const PatientSchema = new mongoose.Schema (
             required: [true, "Last Name is required!"],
             minLength: [2, "Last Name must be at least 2 characters!"], // validator constraint and message
         },
-            DOB: {
+        gender: {
+            type: String,
+            required: [true, "Gender is required!"],
+        },
+        DOB: {
             type: Date,
+            required: [true, "DOB is required!"],
         },
-            age: {
+        age: {
             type: Number,
+            required: [true, "Age is required!"],
+            minLength: [1, "Age must be at least 1 number!"], // validator constraint and message
         },
-            appointmentType: {
+        appointmentType: {
             type: String,
         },
-            discussionTopic: {
+        discussionTopic: {
             type: String,
         },
-            summary: {
+        summary: {
             type: String,
         },
     },
