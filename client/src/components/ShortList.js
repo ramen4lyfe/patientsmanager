@@ -27,15 +27,15 @@ const ShortList = () => {
           });
   }, []);
 
-  // useEffect(() => {
-  //   axios.get(`http://localhost:8000/api/patient/details/${id}`)
-  //     .then((res) => {
-  //         console.log(res);
-  //         console.log(res.data);
-  //         setPatient(res.data);
-  //     })
-  //     .catch((err)=>console.log(err));
-  // }, [id])
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/patient/details/${id}`)
+      .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setPatient(res.data);
+      })
+      .catch((err)=>console.log(err));
+  }, [id])
 
   return (
     <Row xs={1} md={2} className="g-4">
