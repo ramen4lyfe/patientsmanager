@@ -4,6 +4,8 @@ import CreatePatient from "./components/CreatePatient";
 import UpdatePatient from "./components/UpdatePatient";
 import ViewPatient from "./components/ViewPatient";
 import PatientList from "./components/PatientList";
+import Nav from "./components/Nav";
+import Card from "react-bootstrap/Card";
 
 function App() {
   return (
@@ -14,7 +16,7 @@ function App() {
           <BrowserRouter>
             <Card>
               <Card.Header>
-                {/* navigation tab */}
+                <Nav />
               </Card.Header>
               <Card.Body>
                 <Routes>
@@ -30,6 +32,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

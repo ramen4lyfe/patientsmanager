@@ -35,31 +35,31 @@ const CreatePatient = () => {
                 <form onSubmit={handleSubmit} className="row">
                     <div className="form-group col-6 mb-4 mt-2">
                         <label className="mb-2" htmlFor="firstName">First Name: </label>
-                        <input 
-                            type="text"
-                            className="form-control mb-4"
-                            onChange={(e) => setFirstName(e.target.value)}
-                            value={firstName}
-                        />
-                        {errors.name ? <p className="text-danger">{errors.firstName.message}</p> : null}
+                            <input 
+                                type="text"
+                                className="form-control mb-4"
+                                onChange={(e) => setFirstName(e.target.value)}
+                                value={firstName}
+                            />
+                            {errors.firstName ? <p className="text-danger">{errors.firstName.message}</p> : null}
                         
                         <label className="mb-2" htmlFor="lastName">Last Name: </label>
-                        <input 
-                            type="text"
-                            className="form-control mb-4"
-                            onChange={(e) => setLasttName(e.target.value)}
-                            value={lastName}
-                        />
-                        {errors.type ? <p className="text-danger">{errors.lastName.message}</p> : null}
+                            <input 
+                                type="text"
+                                className="form-control mb-4"
+                                onChange={(e) => setLasttName(e.target.value)}
+                                value={lastName}
+                            />
+                            {errors.lastName ? <p className="text-danger">{errors.lastName.message}</p> : null}
 
                         <label className="mb-2" htmlFor="DOB">Date of Birth: </label>
-                        <input 
-                            type="textarea"
-                            className="form-control mb-4"
-                            onChange={(e) => setDOB(e.target.value)}
-                            value={DOB}
-                        />
-                        {errors.description ? <p className="text-danger">{errors.DOB.message}</p> : null}
+                            <input 
+                                type="textarea"
+                                className="form-control mb-4"
+                                onChange={(e) => setDOB(e.target.value)}
+                                value={DOB}
+                            />
+                            {errors.DOB ? <p className="text-danger">{errors.DOB.message}</p> : null}
                     </div>
                     <div className="form-group col-6 mb-4 mt-2">
                         <label className="mb-2" htmlFor="age">Age: </label>
@@ -69,6 +69,7 @@ const CreatePatient = () => {
                                 onChange={(e) => setAge(e.target.value)}
                                 value={age}
                             />
+                            {errors.age ? <p className="text-danger">{errors.age.message}</p> : null}
 
                         <label className="mb-2" htmlFor="appointmentType">Appointment Type: </label>
                             <input 
