@@ -14,6 +14,9 @@ function NavTab() {
                 <Nav.Item>
                     <Nav.Link as={NavLink} to={"/api/patient/new"}>Add New Patient</Nav.Link>
                 </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link as={NavLink} to={"/api/patient/new"}>Add New Patient</Nav.Link>
+                </Nav.Item>
             </Nav>
     );
 }
