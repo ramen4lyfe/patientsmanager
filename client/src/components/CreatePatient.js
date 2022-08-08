@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const CreatePatient = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLasttName] = useState("");
+    const [gender, setGender] = useState("");
     const [DOB, setDOB] = useState("");
     const [age, setAge] = useState("");
     const [appointmentType, setAppointmentType] = useState("");
@@ -16,7 +17,7 @@ const CreatePatient = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/patient", {firstName, lastName, DOB, age, appointmentType, discussionTopic, summary})
+        axios.post("http://localhost:8000/api/patient", {firstName, lastName, gender, DOB, age, appointmentType, discussionTopic, summary})
             .then(response => {
                 console.log(response);
                 navigate("api/patient/list");
@@ -51,6 +52,15 @@ const CreatePatient = () => {
                                 value={lastName}
                             />
                             {errors.lastName ? <p className="text-danger">{errors.lastName.message}</p> : null}
+                        
+                        <label className="mb-2" htmlFor="lastName">Gender: </label>
+                            <input 
+                                type="text"
+                                className="form-control mb-4"
+                                onChange={(e) => setGender(e.target.value)}
+                                value={gender}
+                            />
+                            {errors.gender ? <p className="text-danger">{errors.gender.message}</p> : null}
 
                         <label className="mb-2" htmlFor="DOB">Date of Birth: </label>
                             <input 
@@ -60,6 +70,7 @@ const CreatePatient = () => {
                                 value={DOB}
                             />
                             {errors.DOB ? <p className="text-danger">{errors.DOB.message}</p> : null}
+                            
                     </div>
                     <div className="form-group col-6 mb-4 mt-2">
                         <label className="mb-2" htmlFor="age">Age: </label>
@@ -88,8 +99,9 @@ const CreatePatient = () => {
                             />
 
                         <label className="mb-2" htmlFor="summary">Summary: </label>
-                            <input 
+                            <textarea 
                                 type="text"
+                                rows="5"
                                 className="form-control mb-4"
                                 onChange={(e) => setSummary(e.target.value)}
                                 value={summary}

@@ -6,6 +6,9 @@ function NavTab() {
     return (
             <Nav justify variant="tabs">
                 <Nav.Item>
+                    <Nav.Link as={NavLink} to={"/api/patient/shortlist"}>Short List</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
                     <Nav.Link as={NavLink} to={"/api/patient/list"}>Patients List</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
