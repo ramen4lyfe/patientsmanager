@@ -11,9 +11,9 @@ import Row from 'react-bootstrap/Row';
 
 
 const ShortList = () => {
-  const {id} = useParams();
+  // const {id} = useParams();
   // const [patient, setPatient] = useState({});
-  const navigate = useNavigate(); 
+  // const navigate = useNavigate(); 
 
   const [patientData, setPatientData] = useState([]);
     useEffect(() => {
@@ -27,35 +27,58 @@ const ShortList = () => {
           });
   }, []);
 
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/patient/details/${id}`)
-      .then((res) => {
-          console.log(res);
-          console.log(res.data);
-          setPatient(res.data);
-      })
-      .catch((err)=>console.log(err));
-  }, [id])
+  const renderCard = (patient, index) => {
+    return (
+      <Card style={{ width: '18rem' }} key={patient._id}>
+      <Card.Body>
+        <Card.Title>{patient.firstName}</Card.Title>
+        <Card.Text>
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>Cras justo odio</ListGroup.Item>
+        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+      </ListGroup>
+      <Card.Body>
+        <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link>
+      </Card.Body>
+    </Card>
+    )
+  }
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8000/api/patient/details/${id}`)
+  //     .then((res) => {
+  //         console.log(res);
+  //         console.log(res.data);
+  //         setPatientData(res.data);
+  //     })
+  //     .catch((err)=>console.log(err));
+  // }, [id])
 
-  return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ patientData }).map((patient, index) => (
-        <Col>
-          <Card key={patient._id}>
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <ListGroup.Item>Gender: {patient.summary}</ListGroup.Item>
+  return 
+    {patientData.map(renderCard)}
+    // <Row xs={1} md={2} className="g-4">
+    //   {Array.from({ length: 4 }).map((patient, idx) => (
+    //     <Col>
+    //       <Card>
+    //         <Card.Img variant="top" src="holder.js/100px160" />
+    //         <Card.Body>
+    //           <Card.Title>Card title</Card.Title>
+    //           <Card.Text>
+    //             This is a longer card with supporting text below as a natural
+    //             lead-in to additional content. This content is a little bit
+    //             longer.
+    //           </Card.Text>
+    //         </Card.Body>
+    //       </Card>
+    //     </Col>
+    //   ))}
+    // </Row>
+  
+};
 
-              <Card.Text>
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
-  )
-}
-
-export default ShortList
+export default ShortList;
