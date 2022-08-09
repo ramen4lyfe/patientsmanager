@@ -6,28 +6,28 @@ import { Link } from 'react-router-dom';
 
 const PatientList = () => {
   const [patientData, setPatientData] = useState([]);
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/patient")
-          .then((response) => {
-              console.log(response.data);
-              setPatientData(response.data);
-          })
-          .catch((err) => {
-              console.log(err);
-          });
+  useEffect(() => {
+    axios.get("http://localhost:8000/api/patient")
+      .then((response) => {
+          console.log(response.data);
+          setPatientData(response.data);
+      })
+      .catch((err) => {
+          console.log(err);
+      });
   }, []);
 
-  const handleDelete = (idFromBelow) => {
+  const handleAddShortList = (idFromBelow) => {
     axios
-    .delete(`http://localhost:8000/api/patient/${idFromBelow}`)
+    .get(`http://localhost:8000/api/patient/${idFromBelow}`)
     .then((response) => {
-        console.log("Record Removed from DB");
+        console.log("Selected for short list");
         console.log(response);
         //filtered out recently adopted pet
-        const deletedRecord = patientData.filter((patient) => {
+        const selectedRecord = patientData.filter((patient) => {
             return patient._id !== idFromBelow;
         });
-        setPatientData(deletedRecord);
+        setPatientData(selectedRecord);
     })
     .catch((err) => {
         console.log("Error deleting", err.response);
@@ -66,7 +66,7 @@ const PatientList = () => {
                                     <td>
                                         <Link to={`/api/patient/details/${patient._id}`} className="btn btn-info btn-sm m-2">Details</Link>
                                         <Link to={`/api/patient/update/${patient._id}`} className="btn btn-warning btn-sm m-2">Edit</Link>
-                                        {/* <button onClick={() => handleDelete(pet._id)} className="btn btn-success btn-sm m-2">Adopt This Pet!</button> */}
+                                        <button onClick={() => handleAddShortList(patient._id)} className="btn btn-success btn-sm m-2">Add to Short List</button>
                                     </td>
                                 </tr>
                             )

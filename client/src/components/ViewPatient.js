@@ -45,7 +45,7 @@ const ViewPatient = (props) => {
             <div className="p-2">
                 <h4>Details about: {patient.firstName} {patient.lastName}</h4>
                 <Card style={{ width: 'auto' }}>
-                  {/* <Card.Header>{patient.firstName} {patient.lastName}</Card.Header> */}
+                  <Card.Header>{patient.firstName} {patient.lastName}</Card.Header>
                   <ListGroup variant="flush">
                     <ListGroup.Item>Gender: {patient.gender}</ListGroup.Item>
                     <ListGroup.Item>Age: {patient.age}</ListGroup.Item>
