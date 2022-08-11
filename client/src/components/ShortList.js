@@ -20,18 +20,23 @@ const ShortList = () => {
   }, []);
 
 
-  const listItems = patientData.map((patient) =>
-   <Card style={{ width: 'auto' }} key={patient._id}>
+const patientCard = patientData.map((patient) =>
+  <Card className="m-2" style={{ width: '24rem' }} key={patient._id}>
    <Card.Header>{patient.firstName} {patient.lastName}</Card.Header>
    <ListGroup variant="flush">
-     <ListGroup.Item>Age: {patient.age}</ListGroup.Item>
-     <ListGroup.Item>first name: {patient.summary}</ListGroup.Item>
+   <ListGroup.Item>Gender: {patient.gender}</ListGroup.Item>
+                    <ListGroup.Item>Age: {patient.age}</ListGroup.Item>
+                    <ListGroup.Item>DOB: {patient.DOB}</ListGroup.Item>
+                    <ListGroup.Item>Appointment Type: {patient.appointmentType}</ListGroup.Item>
+                    <ListGroup.Item>Discussion Topic: {patient.discussionTopic}</ListGroup.Item>
+                    <ListGroup.Item>Summary: {patient.summary}</ListGroup.Item>
    </ListGroup>
  </Card>
 );
   return (
-    // <div>ShortList You mom</div>
-    <ul>{listItems}</ul>
+    <div className="container-fluid-md d-md-flex justify-content-center align-item-center">
+      {patientCard}
+    </div>
   )
 }
 
