@@ -28,7 +28,10 @@ const PatientList = () => {
         const selectedRecord = patientData.filter((patient) => {
             return patient._id !== idFromBelow;
         });
-        setPatientData(selectedRecord);
+        const selectedPatient = patientData.filter((patient) => {
+            return (patient.data);
+        });
+        setPatientData(selectedPatient);
     })
     .catch((err) => {
         console.log("Error deleting", err.response);
