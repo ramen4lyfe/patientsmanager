@@ -2,6 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom'; 
+import ShortListData from "./data/ShortListData";
 
 
 
@@ -79,7 +80,7 @@ const onAdd = (patientData) => {
                                     <td>
                                         <Link to={`/api/patient/details/${patient._id}`} className="btn btn-info btn-sm m-2">Details</Link>
                                         <Link to={`/api/patient/update/${patient._id}`} className="btn btn-warning btn-sm m-2">Edit</Link>
-                                        <Link to={`api/patient/shortlist/${patient._id}`} className="btn btn-warning btn-sm m-2">Add</Link>
+                                        {/* <Link to={`api/patient/shortlist/${patient._id}`} className="btn btn-warning btn-sm m-2">Add</Link> */}
                                         <button onClick={() => onAdd(patient._id)} className="btn btn-success btn-sm m-2">Add to Short List</button>
                                     </td>
                                 </tr>

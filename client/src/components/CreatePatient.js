@@ -20,7 +20,7 @@ const CreatePatient = () => {
         axios.post("http://localhost:8000/api/patient", {firstName, lastName, gender, DOB, age, appointmentType, discussionTopic, summary})
             .then(response => {
                 console.log(response);
-                navigate("api/patient/list");
+                navigate("/api/patient/list");
             })
             .catch((err) => {
                 console.log(err)
