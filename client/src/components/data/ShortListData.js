@@ -42,9 +42,9 @@ import axios from "axios";
 //       }, [id])
   
       
-    };
-return (
+//     };
+// return (
 
-);
+// );
 
 export default ShortListData;

@@ -25,9 +25,9 @@ const PatientList = () => {
         console.log("Selected for short list");
         console.log(response);
         //filtered out recently adopted pet
-        const selectedRecord = patientData.filter((patient) => {
-            return patient._id !== idFromBelow;
-        });
+        // const selectedRecord = patientData.filter((patient) => {
+        //     return patient._id !== idFromBelow;
+        // });
         const selectedPatient = patientData.filter((patient) => {
             return (patient.data);
         });
@@ -36,6 +36,15 @@ const PatientList = () => {
     .catch((err) => {
         console.log("Error deleting", err.response);
     });
+};
+
+const onAdd = (patientData) => {
+  const exist = patientData.find(x => x.id === patientData._id);
+  if(exist) {
+    setPatientData(patientData.map(x => x.id === patientData._id ? {...exist, qty: exist.qty +1} : x));
+  } else {
+    setPatientData([...patientData, { ...exist, qty: 1}]);
+  }
 };
 
   return (
@@ -70,7 +79,8 @@ const PatientList = () => {
                                     <td>
                                         <Link to={`/api/patient/details/${patient._id}`} className="btn btn-info btn-sm m-2">Details</Link>
                                         <Link to={`/api/patient/update/${patient._id}`} className="btn btn-warning btn-sm m-2">Edit</Link>
-                                        <button onClick={() => handleAddShortList(patient._id)} className="btn btn-success btn-sm m-2">Add to Short List</button>
+                                        <Link to={`api/patient/shortlist/${patient._id}`} className="btn btn-warning btn-sm m-2">Add</Link>
+                                        <button onClick={() => onAdd(patient._id)} className="btn btn-success btn-sm m-2">Add to Short List</button>
                                     </td>
                                 </tr>
                             )
