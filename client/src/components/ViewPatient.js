@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import moment from 'moment';
+
 
 const ViewPatient = (props) => {
   const {id} = useParams();
@@ -49,7 +51,7 @@ const ViewPatient = (props) => {
                   <ListGroup variant="flush">
                     <ListGroup.Item>Gender: {patient.gender}</ListGroup.Item>
                     <ListGroup.Item>Age: {patient.age}</ListGroup.Item>
-                    <ListGroup.Item>DOB: {patient.DOB}</ListGroup.Item>
+                    <ListGroup.Item>DOB: {moment(patient.DOB).format('MMMM Do, YYYY')}</ListGroup.Item>
                     <ListGroup.Item>Appointment Type: {patient.appointmentType}</ListGroup.Item>
                     <ListGroup.Item>Discussion Topic: {patient.discussionTopic}</ListGroup.Item>
                     <ListGroup.Item>Summary: {patient.summary}</ListGroup.Item>
