@@ -9,19 +9,24 @@ import ShortList from "./components/ShortList";
 import Nav from "./components/Nav";
 import Card from "react-bootstrap/Card";
 import ShortListData from "./components/data/ShortListData";
+import axios from "axios";
 
 
 function App() {
-  const { patientData } = ShortListData;
-  const [cartItems, setCartItems] = useState([]);  
-  const onAdd = (patientData) => {
-    const exist = cartItems.find(x => x.id === patientData._id);
-    if(exist) {
-      setCartItems(cartItems.map(x => x.id === patientData._id ? {...exist, qty: exist.qty +1} : x));
-    } else {
-      setCartItems([...cartItems, { ...exist, qty: 1}]);
-    }
-  };
+  
+
+
+
+  // const { patientData } = ShortListData;
+  // const [cartItems, setCartItems] = useState([]);  
+  // const onAdd = (patientData) => {
+  //   const exist = cartItems.find(x => x.id === patientData._id);
+  //   if(exist) {
+  //     setCartItems(cartItems.map(x => x.id === patientData._id ? {...exist, qty: exist.qty +1} : x));
+  //   } else {
+  //     setCartItems([...cartItems, { ...exist, qty: 1}]);
+  //   }
+  // };
   return (
     <div className="Container-md-fluid m-auto" style={{ width: '70vw' }}>
       <div className="row">
@@ -34,7 +39,7 @@ function App() {
               </Card.Header>
               <Card.Body>
                 <Routes>
-                  <Route path="api/patient/shortlist/:id" element={<ShortList cartItems = { cartItems } />} />
+                  <Route path="api/patient/shortlist/:id" element={<ShortList />} />
                   <Route path="api/patient/list" element={<PatientList />} />
                   <Route path="api/patient/new" element={<CreatePatient />} />
                   <Route path="api/patient/update/:id" element={<UpdatePatient />} />
@@ -43,7 +48,7 @@ function App() {
               </Card.Body>
             </Card>
           </BrowserRouter>
-          <ShortList onAdd={onAdd} cartItems = { cartItems }></ShortList>
+          {/* <ShortList onAdd={onAdd} cartItems = { cartItems }></ShortList> */}
         </div>
       </div>
     </div>

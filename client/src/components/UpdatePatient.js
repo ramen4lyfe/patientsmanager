@@ -94,7 +94,7 @@ const handleSubmit = (e) => {
 
                         <label className="mb-2" htmlFor="DOB">Date of Birth: </label>
                             <input 
-                                type="textarea"
+                                type="date"
                                 className="form-control mb-4"
                                 onChange={(e) => setDOB(e.target.value)}
                                 value={DOB}
@@ -104,7 +104,7 @@ const handleSubmit = (e) => {
                     <div className="form-group col-6 mb-4 mt-2">
                         <label className="mb-2" htmlFor="age">Age: </label>
                             <input 
-                                type="text"
+                                type="number"
                                 className="form-control mb-4"
                                 onChange={(e) => setAge(e.target.value)}
                                 value={age}

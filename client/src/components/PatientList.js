@@ -2,6 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom'; 
+import moment from 'moment';
 import ShortListData from "./data/ShortListData";
 
 
@@ -19,25 +20,24 @@ const PatientList = () => {
       });
   }, []);
 
-  const handleAddShortList = (idFromBelow) => {
-    axios
-    .get(`http://localhost:8000/api/patient/${idFromBelow}`)
-    .then((response) => {
-        console.log("Selected for short list");
-        console.log(response);
-        //filtered out recently adopted pet
-        // const selectedRecord = patientData.filter((patient) => {
-        //     return patient._id !== idFromBelow;
-        // });
-        const selectedPatient = patientData.filter((patient) => {
-            return (patient.data);
-        });
-        setPatientData(selectedPatient);
-    })
-    .catch((err) => {
-        console.log("Error deleting", err.response);
-    });
-};
+//  const handleAddShortList = (idFromBelow) => {
+//     axios
+//     .get(`http://localhost:8000/api/patient/${idFromBelow}`)
+//     .then((response) => {
+//         console.log("Selected for short list");
+//         console.log(response);
+//         // const selectedRecord = patientData.filter((patient) => {
+//         //     return patient._id !== idFromBelow;
+//         // });
+//         const selectedPatient = patientData.filter((patient) => {
+//             return (patient.data);
+//         });
+//         setPatientData(selectedPatient);
+//     })
+//     .catch((err) => {
+//         console.log("Error deleting", err.response);
+//     });
+// };
 
 const onAdd = (patientData) => {
   const exist = patientData.find(x => x.id === patientData._id);
@@ -56,8 +56,7 @@ const onAdd = (patientData) => {
                 <table className="table table-hover mt-3 align-middle">
                     <thead>
                         <tr>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
+                            <th scope="col">Full Name</th>
                             <th scope="col">Gender</th>
                             <th scope="col">DOB</th>
                             <th scope="col">Age</th>
@@ -70,10 +69,9 @@ const onAdd = (patientData) => {
                         {patientData.map((patient,index) => {
                             return(
                                 <tr key={patient._id}>
-                                    <td>{patient.firstName}</td>
-                                    <td>{patient.lastName}</td>
+                                    <td>{patient.firstName} {patient.lastName}</td>
                                     <td>{patient.gender}</td>
-                                    <td>{patient.DOB}</td>
+                                    <td>{moment(patient.DOB).format('MMMM Do, YYYY')}</td>
                                     <td>{patient.age}</td>
                                     <td>{patient.appointmentType}</td>
                                     <td>{patient.discussionTopic}</td>

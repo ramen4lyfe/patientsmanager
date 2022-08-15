@@ -6,5 +6,6 @@ module.exports = (app) => {
     app.post("/api/patient", patientsController.createPatient);
     app.put("/api/patient/update/:id", patientsController.updatePatient);
     app.delete("/api/patient/:id", patientsController.deletePatient);
+    // app.get("/api/patient/:id", patientsController.getOnePatient);
     
 };

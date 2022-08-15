@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
  
-const PatientSchema = new mongoose.Schema (
+const ShortListtSchema = new mongoose.Schema (
     {
+        patientFrom: {
+            type: Schema.Types.ObjectId,
+            ref: 'Patient'
+        },
         firstName: {
             type: String,
             required: [true, "First Name is required!"],
@@ -15,7 +19,6 @@ const PatientSchema = new mongoose.Schema (
         gender: {
             type: String,
             required: [true, "Gender is required!"],
-            enum: ['Male','Female'],
         },
         DOB: {
             type: Date,
@@ -28,8 +31,6 @@ const PatientSchema = new mongoose.Schema (
         },
         appointmentType: {
             type: String,
-            enum: ['Initial','Annual','Basic Follow Up', 'Post Discharge','Post Discharge Follow Up'],
-            
         },
         discussionTopic: {
             type: String,
@@ -43,4 +44,4 @@ const PatientSchema = new mongoose.Schema (
     },
 );
  
-module.exports = mongoose.model("Patient", PatientSchema);
+module.exports = mongoose.model("PatientShortList", ShortListSchema);
