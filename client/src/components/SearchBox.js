@@ -8,36 +8,13 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 
 
 const SearchBox = () => {
-    /*const [patientData, setPatientData] = useState([]);
-
-    const onChange = (event) => {
-        setPatientData(event.target.value);
-        console.log(event.target.value)
-    };
-
-    const OnSearch = (searchTerm) => {
-        setPatientData(searchTerm);
-        useEffect(() => {
-            axios.get("http://localhost:8000/api/patient")
-              .then((response) => {
-                  console.log(response.data);
-                  setPatientData(response.data);
-              })
-              .catch((err) => {
-                  console.log(err);
-              });
-          }, []);        console.log("search ", searchTerm);
-    };  
-    */
     const {firstName} = useParams();
-    const [searchText, setSearchText] = useState("")
+    const [search, setSearch] = useState("")
     const [patientData, setPatientData] = useState({})
 
     function searchForPatient(event) {
-        // Set up the correct API call
-
         // Handle the correct API call
-        axios.get(`http://localhost:8000/api/patient/${searchText}`)
+        axios.get(`http://localhost:8000/api/patient/${search}`)
         .then(function(response){
             setPatientData(response.data)
             // console.log(patientData)
@@ -56,16 +33,15 @@ const SearchBox = () => {
             aria-label="Search"
             aria-describedby="basic-addon2"
         //   value={''}
-            onChange={e => setSearchText(e.target.value)}
+            onChange={e => setSearch(e.target.value)}
         />
-        <Button 
+        {/* <Button 
             variant="outline-secondary" 
             id="button-addon2" 
             onClick={e => searchForPatient(e)}>
           Search
-        </Button>
+        </Button> */}
       </InputGroup>
-      
     </div>
   )
 }

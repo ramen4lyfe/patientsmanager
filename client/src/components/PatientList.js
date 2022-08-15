@@ -3,8 +3,12 @@ import { useState,useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom'; 
 import moment from 'moment';
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 import ShortListData from "./data/ShortListData";
-import SearchBox from './SearchBox';
+import { useParams } from 'react-router-dom';
+
+// import SearchBox from './SearchBox';
 
 
 const PatientList = () => {
@@ -21,40 +25,51 @@ const PatientList = () => {
   }, []);
 
 
-//  const handleAddShortList = (idFromBelow) => {
-//     axios
-//     .get(`http://localhost:8000/api/patient/${idFromBelow}`)
-//     .then((response) => {
-//         console.log("Selected for short list");
-//         console.log(response);
-//         // const selectedRecord = patientData.filter((patient) => {
-//         //     return patient._id !== idFromBelow;
-//         // });
-//         const selectedPatient = patientData.filter((patient) => {
-//             return (patient.data);
-//         });
-//         setPatientData(selectedPatient);
-//     })
-//     .catch((err) => {
-//         console.log("Error deleting", err.response);
-//     });
-// };
+    const {firstName} = useParams();
+    const [search, setSearch] = useState("")
+    const [patientSearchData, setPatientSearchData] = useState({})
 
-// const onAdd = (patientData) => {
-//   const exist = patientData.find(x => x.id === patientData._id);
-//   if(exist) {
-//     setPatientData(patientData.map(x => x.id === patientData._id ? {...exist, qty: exist.qty +1} : x));
-//   } else {
-//     setPatientData([...patientData, { ...exist, qty: 1}]);
-//   }
-// };
+    function searchForPatient(event) {
+        // Handle the correct API call
+        axios.get(`http://localhost:8000/api/patient/${search}`)
+        .then(function(response){
+            setPatientData(response.data)
+            // console.log(patientData)
+        })
+        .catch((err) => {
+            console.log(err.response.data.error.errors);
+        })
+    }
+    console.log(patientData)
+
 
   return (
     <div className="container">
         <div className="row">
             <div className="mt-2">
                 {/* <h3>Patients List</h3> */}
-                <SearchBox />
+                {/* <SearchBox /> */}
+
+                <div className="row justify-content-center align-items-center">
+                  <InputGroup className="col-6">
+                    <FormControl
+                        placeholder="Search for patient"
+                        aria-label="Search"
+                        aria-describedby="basic-addon2"
+                    //   value={''}
+                        onChange={e => setSearch(e.target.value)}
+                    />
+                    {/* <Button 
+                        variant="outline-secondary" 
+                        id="button-addon2" 
+                        onClick={e => searchForPatient(e)}>
+                      Search
+                    </Button> */}
+                  </InputGroup>
+                </div>
+
+
+
                 <table className="table table-hover mt-3 align-middle">
                     <thead>
                         <tr>
@@ -68,7 +83,12 @@ const PatientList = () => {
                     </thead>
 
                     <tbody className="table-group-divider">
-                        {patientData.map((patient,index) => {
+                        {patientData.filter((patient) => {
+                          return search === '' 
+                          ? patient 
+                          : patient.firstName.toLowerCase().includes(search)
+                        })
+                        .map((patient,index) => {
                             return(
                                 <tr key={patient._id}>
                                     <td>{patient.firstName} {patient.lastName}</td>
