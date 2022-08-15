@@ -44,7 +44,6 @@ const SearchBox = () => {
         })
         .catch((err) => {
             console.log(err.response.data.error.errors);
-            // setErrors(err.response.data.error.errors);
         })
     }
     console.log(patientData)
