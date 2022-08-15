@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom'; 
 import moment from 'moment';
 import ShortListData from "./data/ShortListData";
-
+import SearchBox from './SearchBox';
 
 
 const PatientList = () => {
@@ -19,6 +19,7 @@ const PatientList = () => {
           console.log(err);
       });
   }, []);
+
 
 //  const handleAddShortList = (idFromBelow) => {
 //     axios
@@ -52,7 +53,8 @@ const PatientList = () => {
     <div className="container">
         <div className="row">
             <div className="mt-2">
-                <h3>Patients List</h3>
+                {/* <h3>Patients List</h3> */}
+                <SearchBox />
                 <table className="table table-hover mt-3 align-middle">
                     <thead>
                         <tr>

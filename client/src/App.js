@@ -13,9 +13,6 @@ import axios from "axios";
 
 
 function App() {
-  
-
-
 
   // const { patientData } = ShortListData;
   // const [cartItems, setCartItems] = useState([]);  

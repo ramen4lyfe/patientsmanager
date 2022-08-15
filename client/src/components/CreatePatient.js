@@ -32,7 +32,7 @@ const CreatePatient = () => {
     <div className="container-sm">
         <div className="row">
             <div className="mt-2">
-                <h3>Add a new patient</h3>
+                {/* <h3>Add a new patient</h3> */}
                 <form onSubmit={handleSubmit} className="row">
                     <div className="form-group col-6 mt-2">
                         <label className="mb-2" htmlFor="firstName">First Name: </label>
