@@ -14,16 +14,6 @@ import axios from "axios";
 
 function App() {
 
-  // const { patientData } = ShortListData;
-  // const [cartItems, setCartItems] = useState([]);  
-  // const onAdd = (patientData) => {
-  //   const exist = cartItems.find(x => x.id === patientData._id);
-  //   if(exist) {
-  //     setCartItems(cartItems.map(x => x.id === patientData._id ? {...exist, qty: exist.qty +1} : x));
-  //   } else {
-  //     setCartItems([...cartItems, { ...exist, qty: 1}]);
-  //   }
-  // };
   return (
     <div className="container">
       <div className="row">
@@ -36,7 +26,7 @@ function App() {
               </Card.Header>
               <Card.Body>
                 <Routes>
-                  <Route path="api/patient/shortlist/:id" element={<ShortList />} />
+                  <Route path="api/patient/shortlist" element={<ShortList />} />
                   <Route path="api/patient/list" element={<PatientList />} />
                   <Route path="api/patient/new" element={<CreatePatient />} />
                   <Route path="api/patient/update/:id" element={<UpdatePatient />} />
