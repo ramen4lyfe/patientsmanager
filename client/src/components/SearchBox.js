@@ -3,14 +3,16 @@ import axios from "axios";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 
-const SearchBox = (props) => {
-    const [patientData, setPatientData] = useState([]);
 
+const SearchBox = () => {
+    /*const [patientData, setPatientData] = useState([]);
 
     const onChange = (event) => {
         setPatientData(event.target.value);
+        console.log(event.target.value)
     };
 
     const OnSearch = (searchTerm) => {
@@ -26,42 +28,39 @@ const SearchBox = (props) => {
               });
           }, []);        console.log("search ", searchTerm);
     };  
+    */
+    const {firstName} = useParams();
+    const [searchText, setSearchText] = useState("")
+    function searchForPatient(event) {
+        // Set up the correct API call
+
+        // Handle the correct API call
+        axios.get("http://localhost:8000/api/patient/details/"+ searchText)
+        .then(function(response){
+            console.log(response)
+        })
+        .catch((err) => {
+            console.log(err.response.data.error.errors);
+            // setErrors(err.response.data.error.errors);
+        })
+    }
+
   return (
     <div className="row justify-content-center align-items-center">
       <InputGroup className="col-6">
         <FormControl
-          placeholder="Search"
-          aria-label="Search"
-          aria-describedby="basic-addon2"
-          value={patientData}
-          onChange={onChange}
+            placeholder="Search for patient"
+            aria-label="Search"
+            aria-describedby="basic-addon2"
+        //   value={''}
+            onChange={e => setSearchText(e.target.value)}
         />
-        <Button variant="outline-secondary" id="button-addon2" onClick={() => OnSearch(patientData)}>
+        <Button 
+            variant="outline-secondary" 
+            id="button-addon2" 
+            onClick={e => searchForPatient(e)}>
           Search
         </Button>
-        <div className="dropdown">
-          {patientData
-            .filter((item) => {
-              const searchTerm = patientData.toLowerCase();
-              const fullName = item.full_name.toLowerCase();
-
-              return (
-                searchTerm &&
-                fullName.startsWith(searchTerm) &&
-                fullName !== searchTerm
-              );
-            })
-            .slice(0, 10)
-            .map((item) => (
-              <div
-                onClick={() => OnSearch(item.full_name)}
-                className="dropdown-row"
-                key={item.full_name}
-              >
-                {item.full_name}
-              </div>
-            ))}
-        </div>
       </InputGroup>
       
     </div>

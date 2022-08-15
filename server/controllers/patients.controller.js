@@ -29,6 +29,18 @@ const getOnePatient = (req, res) => {
         res.status(400).json({error: err });
     });
 };
+
+const getOneByName = (req, res) => {
+    Patient.findOne({firstName: req.params.firstName})
+    .then((onePatientByName) => {
+        res.json(onePatientByName);
+        console.log(onePatientByName)
+    })
+    .catch((err) => {
+        res.status(400).json({error: err });
+    });
+};
+
 const updatePatient = (req, res) => {
     Patient.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, runValidators: true,})
         .then((updatedPatient) => {
@@ -48,4 +60,4 @@ const deletePatient = (req, res) => {
         });
 };
 
-module.exports = {createPatient, getAllPatients, getOnePatient, updatePatient, deletePatient};
+module.exports = {createPatient, getAllPatients, getOnePatient, updatePatient, deletePatient, getOneByName};
