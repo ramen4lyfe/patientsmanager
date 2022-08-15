@@ -43,9 +43,9 @@ function addShortList(event) {
   axios.get(`http://localhost:8000/api/patient/shortlist/${id}`)
   .then(function(response){
     setPatientData(response.data)
-
+    const shortList = [{response}]
     // add to short list 
-    console.log(response.data)
+    console.log(shortList)
   })
   .catch((err) => {
     console.log(err.response.data.error.errors);
@@ -53,7 +53,7 @@ function addShortList(event) {
 }
 
 return (
-    <div className="container">
+    <div className="container-fluid">
         <div className="row">
             <div className="mt-2">
 

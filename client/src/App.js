@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, Component } from 'react';
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreatePatient from "./components/CreatePatient";
@@ -10,7 +10,6 @@ import Nav from "./components/Nav";
 import Card from "react-bootstrap/Card";
 import ShortListData from "./components/data/ShortListData";
 import axios from "axios";
-
 
 function App() {
 
