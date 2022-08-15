@@ -31,19 +31,23 @@ const SearchBox = () => {
     */
     const {firstName} = useParams();
     const [searchText, setSearchText] = useState("")
+    const [patientData, setPatientData] = useState({})
+
     function searchForPatient(event) {
         // Set up the correct API call
 
         // Handle the correct API call
-        axios.get("http://localhost:8000/api/patient/details/"+ searchText)
+        axios.get(`http://localhost:8000/api/patient/${searchText}`)
         .then(function(response){
-            console.log(response)
+            setPatientData(response.data)
+            // console.log(patientData)
         })
         .catch((err) => {
             console.log(err.response.data.error.errors);
             // setErrors(err.response.data.error.errors);
         })
     }
+    console.log(patientData)
 
   return (
     <div className="row justify-content-center align-items-center">
