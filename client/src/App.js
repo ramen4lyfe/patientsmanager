@@ -28,10 +28,10 @@ function App() {
   //   }
   // };
   return (
-    <div className="Container-md-fluid m-auto" style={{ width: '70vw' }}>
+    <div className="container">
       <div className="row">
         <div className="p-4">
-          <h1>Patients Manager</h1>
+          <h1>Track@</h1>
           <BrowserRouter>
             <Card>
               <Card.Header>
