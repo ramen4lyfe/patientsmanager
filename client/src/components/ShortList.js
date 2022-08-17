@@ -38,7 +38,7 @@ return (
     <h2>Short List</h2>
      <div className="p-2">
       {idList}
-       <h4>Details about: {idList.firstName} {idList.lastName}</h4>
+       {/* <h4>Details about: {idList.firstName} {idList.lastName}</h4>
       <Card style={{ width: 'auto' }}>
         <Card.Header>{idList.firstName} {idList.lastName}</Card.Header>
         <ListGroup variant="flush">
@@ -50,7 +50,7 @@ return (
           <ListGroup.Item>Summary: {idList.summary}</ListGroup.Item>
         </ListGroup>
       </Card>
-      <Link to={`/api/patient/update/${idList._id}`} className="btn btn-warning m-2">Update Record</Link> 
+      <Link to={`/api/patient/update/${idList._id}`} className="btn btn-warning m-2">Update Record</Link>  */}
       {/* <Button variant="danger" onClick={handleShow}>Delete Record</Button> */}
     </div> 
   </div>
