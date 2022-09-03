@@ -35,6 +35,7 @@ function App() {
                   <Route path="api/patient/new" element={<CreatePatient />} />
                   <Route path="api/patient/update/:id" element={<UpdatePatient />} />
                   <Route path="api/patient/details/:id" element={<ViewPatient />} />
+                  <Route path="api/patient/new" element={<CreateModal />} />
                 </Routes>
               </Card.Body>
             </Card>
