@@ -1,5 +1,4 @@
-import { useState,useEffect, Component } from 'react';
-import React from "react";
+import React, { useState,useEffect, Component } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreatePatient from "./components/CreatePatient";
 import UpdatePatient from "./components/UpdatePatient";
@@ -13,9 +12,9 @@ import axios from "axios";
 import PatientContext from './context/PatientContext';
 import CreateModal from './components/modals/CreateModal';
 
-
-function App() {
-
+// use a class allows for dynamic and interactive data
+class App extends Component {
+render() {
   return (
     <div className="container">
       <div className="row">
@@ -46,6 +45,7 @@ function App() {
       </div>
     </div>
   );
+};
 };
 
 export default App;
