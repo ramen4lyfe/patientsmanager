@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import CreatePatient from './CreatePatient';
 
 const CreateModal = () => {
     const [show, setShow] = useState(false);
@@ -23,7 +24,7 @@ const CreateModal = () => {
             <Modal.Title>Add New Patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            YOUR MOM
+            <CreatePatient />
         </Modal.Body>
         <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
