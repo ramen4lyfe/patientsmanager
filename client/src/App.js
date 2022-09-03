@@ -11,7 +11,8 @@ import Card from "react-bootstrap/Card";
 import ShortListData from "./components/data/ShortListData";
 import axios from "axios";
 import PatientContext from './context/PatientContext';
-import CreateModal from './components/CreateModal';
+import CreateModal from './components/modals/CreateModal';
+
 
 function App() {
 

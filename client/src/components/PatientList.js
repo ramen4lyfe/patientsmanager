@@ -12,8 +12,6 @@ import PatientContext from '../context/PatientContext';
 
 
 const PatientList = () => {
-
-    
     const [patientData, setPatientData] = useState([]);
     useEffect(() => {
     axios.get("http://localhost:8000/api/patient")
