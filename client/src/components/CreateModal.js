@@ -10,7 +10,7 @@ const CreateModal = () => {
     return (
         <>
         <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
+        Add New Patient
         </Button>
 
         <Modal
@@ -20,11 +20,10 @@ const CreateModal = () => {
         keyboard={false}
         >
         <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Add New Patient</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            I will not close if you click outside me. Don't even try to press
-            escape key.
+            YOUR MOM
         </Modal.Body>
         <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
