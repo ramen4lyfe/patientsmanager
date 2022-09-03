@@ -11,6 +11,7 @@ import Card from "react-bootstrap/Card";
 import ShortListData from "./components/data/ShortListData";
 import axios from "axios";
 import PatientContext from './context/PatientContext';
+import CreateModal from './components/CreateModal';
 
 function App() {
 
@@ -18,7 +19,10 @@ function App() {
     <div className="container">
       <div className="row">
         <div className="p-4">
-          <h1>Track@</h1>
+          <div className="d-flex justify-content-between mb-3">
+            <h1>Track@</h1>
+            <CreateModal />
+          </div>
           <BrowserRouter>
             <Card>
               <Card.Header>
