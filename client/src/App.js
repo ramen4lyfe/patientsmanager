@@ -13,16 +13,13 @@ import PatientContext from './context/PatientContext';
 import CreateModal from './components/modals/CreateModal';
 
 // use a class allows for dynamic and interactive data
-class App extends Component {
+class App extends React.Component {
 render() {
   return (
     <div className="container">
       <div className="row">
         <div className="p-4">
-          <div className="d-flex justify-content-between mb-3">
             <h1>Track@</h1>
-            <CreateModal />
-          </div>
           <BrowserRouter>
             <Card>
               <Card.Header>
