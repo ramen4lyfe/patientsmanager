@@ -45,8 +45,8 @@ function CreateModal () {
     };
     return (
         <>
-        <Button variant="primary" onClick={handleShow}>
-        Add New Patient
+        <Button variant="outline-primary" onClick={handleShow}>
+        + Add New Patient
         </Button>
 
         <Modal
