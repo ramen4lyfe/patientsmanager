@@ -114,6 +114,7 @@ const CreateForm = () => {
                 onChange={(e) => setSummary(e.target.value)}
                 value={summary}
             />
+        <button type="submit" className="btn btn-primary btn-block mb-2">Create Patient</button>
         
     </form>
   )
