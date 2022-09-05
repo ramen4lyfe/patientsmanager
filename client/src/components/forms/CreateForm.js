@@ -1,5 +1,7 @@
 import {React,useState} from 'react'
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+
 
 
 const CreateForm = () => {
@@ -12,6 +14,9 @@ const CreateForm = () => {
     const [discussionTopic, setDiscussionTopic] = useState("");
     const [summary, setSummary] = useState("");
     const [errors, setErrors] = useState("");
+
+    const navigate = useNavigate();
+
     // const navigate = useNavigate(); // cannot use navigate inside a modal
 
     // need to handle submit and post onto list
