@@ -8,7 +8,7 @@ function NavTab() {
         <div className="d-flex justify-content-between">
             <Nav  variant="tabs">
                 <Nav.Item>
-                    <Nav.Link as={NavLink} to={"/api/patient/shortlist"}>Short List</Nav.Link>
+                    <Nav.Link as={NavLink} to={"/api/patient/shortlist"}>Today's List</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link as={NavLink} to={"/api/patient/list"}>Patients List</Nav.Link>
