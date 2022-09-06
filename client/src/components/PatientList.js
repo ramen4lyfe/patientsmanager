@@ -94,7 +94,7 @@ const PatientList = () => {
                                 <tr key={patient._id}>
                                     <td>{patient.firstName} {patient.lastName}</td>
                                     <td>{patient.gender}</td>
-                                    <td>{moment(patient.DOB).format('MMMM Do, YYYY')}</td>
+                                    <td>{moment(patient.DOB).format('MM/DD/YYYY')}</td>
                                     <td>{patient.age}</td>
                                     <td>{patient.appointmentType}</td>
                                     <td>{patient.discussionTopic}</td>
