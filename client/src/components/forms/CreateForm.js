@@ -2,7 +2,17 @@ import {React,useState} from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-
+function getAge(dateString) {
+        const today = new Date()
+        const birthDate = new Date(dateString)
+        const age = today.getFullYear() - birthDate.getFullYear()
+        const month = today.getMonth() - birthDate.getMonth()
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) 
+    {
+        age--
+    }
+    return age
+    }
 
 const CreateForm = () => {
     const [firstName, setFirstName] = useState("");
@@ -31,6 +41,8 @@ const CreateForm = () => {
             console.log(err)
             setErrors(err.response.data.error.errors);
         });
+
+    
 };
 
   return (
@@ -81,7 +93,7 @@ const CreateForm = () => {
                 placeholder='Age'
                 className="form-control mb-4"
                 onChange={(e) => setAge(e.target.value)}
-                value={age}
+                value={set}
             />
             {errors.age ? <p className="text-danger">{errors.age.message}</p> : null}
 
