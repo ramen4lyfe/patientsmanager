@@ -3,4 +3,4 @@
 3. create employee data context 
 4. change post dischare to PDC
 5. Auto count age after enter in DOB
-6. 
+6. DOB to show number instead of normal date format
