@@ -5,13 +5,13 @@ import axios from 'axios';
 function getAge(dateString) {
         const today = new Date()
         const birthDate = new Date(dateString)
-        const age = today.getFullYear() - birthDate.getFullYear()
+        const autoAge = today.getFullYear() - birthDate.getFullYear()
         const month = today.getMonth() - birthDate.getMonth()
         if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) 
     {
-        age--
+        autoAge--
     }
-    return age
+    return autoAge
     }
 
 const CreateForm = () => {
@@ -92,8 +92,9 @@ const CreateForm = () => {
                 type="number"
                 placeholder='Age'
                 className="form-control mb-4"
-                onChange={(e) => setAge(e.target.value)}
-                value={set}
+                // onChange={(e) => setAge(e.target.value)}
+                onChange={getAge()}
+                value={age}
             />
             {errors.age ? <p className="text-danger">{errors.age.message}</p> : null}
 
