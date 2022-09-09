@@ -93,7 +93,7 @@ const CreateForm = () => {
                 placeholder='Age'
                 className="form-control mb-4"
                 // onChange={(e) => setAge(e.target.value)}
-                onChange={getAge()}
+                // onChange={getAge()}
                 value={age}
             />
             {errors.age ? <p className="text-danger">{errors.age.message}</p> : null}
