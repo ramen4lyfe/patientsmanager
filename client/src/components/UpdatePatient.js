@@ -13,7 +13,7 @@ const UpdatePatient = () => {
   const [appointmentType, setAppointmentType] = useState("");
   const [discussionTopic, setDiscussionTopic] = useState("");
   const [summary, setSummary] = useState("");
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
