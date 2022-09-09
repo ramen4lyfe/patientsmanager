@@ -8,7 +8,9 @@ import UpdatePatient from '../UpdatePatient';
 
 
 function UpdateModal () {
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
     return (
@@ -33,7 +35,7 @@ function UpdateModal () {
             <Button variant="secondary" onClick={handleClose}>
             Close
             </Button>
-            <Button variant="primary" onClick={handleSubmit}>Add Patient</Button>
+            {/* <Button variant="primary" onClick={handleSubmit}>Add Patient</Button> */}
         </Modal.Footer>
         </Modal>
     </>
