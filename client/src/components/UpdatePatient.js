@@ -51,7 +51,7 @@ const handleSubmit = (e) => {
   })
   .then((response) => {
       console.log(response);
-      navigate("/api/patient/list");
+    //   navigate("/api/patient/list");
   })
   .catch((err) => {
       console.log(err.response.data.error.errors);
