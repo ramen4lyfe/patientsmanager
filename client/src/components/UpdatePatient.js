@@ -4,42 +4,42 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 const UpdatePatient = () => {
-  const {id} = useParams();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLasttName] = useState("");
-  const [gender, setGender] = useState("");
-  const [DOB, setDOB] = useState("");
-  const [age, setAge] = useState("");
-  const [appointmentType, setAppointmentType] = useState("");
-  const [discussionTopic, setDiscussionTopic] = useState("");
-  const [summary, setSummary] = useState("");
+const {id} = useParams();
+const [firstName, setFirstName] = useState("");
+const [lastName, setLasttName] = useState("");
+const [gender, setGender] = useState("");
+const [DOB, setDOB] = useState("");
+const [age, setAge] = useState("");
+const [appointmentType, setAppointmentType] = useState("");
+const [discussionTopic, setDiscussionTopic] = useState("");
+const [summary, setSummary] = useState("");
 //   const navigate = useNavigate();
-  const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    axios
-        .get(`http://localhost:8000/api/patient/details/${id}`)
-        .then((response) => {
-            // console.log(response.data);
-            setFirstName(response.data.firstName);
-            setLasttName(response.data.lastName);
-            setGender(response.data.gender);
-            setDOB(response.data.DOB);
-            setAge(response.data.age);
-            setAppointmentType(response.data.appointmentType);
-            setDiscussionTopic(response.data.discussionTopic);
-            setSummary(response.data.summary);
-        })
-        .catch((err) => {
-            console.log(err.response.data.error.errors);
-            // setErrors(err.response.data.error.errors);
-        });
+useEffect(() => {
+axios
+    .get(`http://localhost:8000/api/patient/details/${id}`)
+    .then((response) => {
+        // console.log(response.data);
+        setFirstName(response.data.firstName);
+        setLasttName(response.data.lastName);
+        setGender(response.data.gender);
+        setDOB(response.data.DOB);
+        setAge(response.data.age);
+        setAppointmentType(response.data.appointmentType);
+        setDiscussionTopic(response.data.discussionTopic);
+        setSummary(response.data.summary);
+    })
+    .catch((err) => {
+        console.log(err.response.data.error.errors);
+        // setErrors(err.response.data.error.errors);
+    });
 }, [id]);
 
 const handleSubmit = (e) => {
-  e.preventDefault();
-  axios
-  .put(`http://localhost:8000/api/patient/update/${id}`, {
+    e.preventDefault();
+    axios
+    .put(`http://localhost:8000/api/patient/update/${id}`, {
     firstName, 
     lastName, 
     gender, 
@@ -48,17 +48,17 @@ const handleSubmit = (e) => {
     appointmentType, 
     discussionTopic, 
     summary,  
-  })
-  .then((response) => {
-      console.log(response);
+    })
+    .then((response) => {
+        console.log(response);
     //   navigate("/api/patient/list");
-  })
-  .catch((err) => {
-      console.log(err.response.data.error.errors);
-      setErrors(err.response.data.error.errors);
-  });
+})
+.catch((err) => {
+    console.log(err.response.data.error.errors);
+    setErrors(err.response.data.error.errors);
+});
 };
-  return (
+    return (
     <div className="container ">
         <div className="row">
             <div className="mt-2">
