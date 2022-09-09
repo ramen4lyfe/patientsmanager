@@ -11,6 +11,7 @@ import ShortListData from "./components/data/ShortListData";
 import axios from "axios";
 import PatientContext from './context/PatientContext';
 import CreateModal from './components/modals/CreateModal';
+import ContextTest from './components/ContextTest';
 
 // use a class allows for dynamic and interactive data
 class App extends React.Component {
@@ -33,6 +34,7 @@ render() {
                   <Route path="api/patient/update/:id" element={<UpdatePatient />} />
                   <Route path="api/patient/details/:id" element={<ViewPatient />} />
                   <Route path="api/patient/new" element={<CreateModal />} />
+                  <Route path="api/patient/test" element={<ContextTest />} />
                 </Routes>
               </Card.Body>
             </Card>
