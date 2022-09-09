@@ -9,6 +9,7 @@ import ShortListData from "./data/ShortListData";
 import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import PatientContext from '../context/PatientContext';
+import UpdateModal from './modals/UpdateModal';
 
 
 const PatientList = () => {
@@ -101,6 +102,7 @@ const PatientList = () => {
                                     <td>
                                         <Link to={`/api/patient/details/${patient._id}`} className="btn btn-info btn-sm m-1">Details</Link>
                                         <Link to={`/api/patient/update/${patient._id}`} className="btn btn-warning btn-sm m-1">Update</Link>
+                                        <UpdateModal />
                                         <Button className="btn-sm m-1" onClick={(e) => addShortList(e)}>+</Button>
                                     </td>
                                 </tr>
