@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/esm/Button';
 import PatientContext from '../context/PatientContext';
 import UpdateModal from './modals/UpdateModal';
-
+import DetailsModal from './modals/DetailsModal';
 
 const PatientList = () => {
     const [patientData, setPatientData] = useState([]);
@@ -103,6 +103,7 @@ const PatientList = () => {
                                         <Link to={`/api/patient/details/${patient._id}`} className="btn btn-info btn-sm m-1">Details</Link>
                                         <Link to={`/api/patient/update/${patient._id}`} className="btn btn-warning btn-sm m-1">Update</Link>
                                         <UpdateModal />
+                                        {/* <DetailsModal /> */}
                                         <Button className="btn-sm m-1" onClick={(e) => addShortList(e)}>+</Button>
                                     </td>
                                 </tr>
