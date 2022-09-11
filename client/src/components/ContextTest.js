@@ -1,8 +1,12 @@
 import React, {useContext, useState, useEffect} from 'react'
+import PatientContext from '../context/PatientContext'
 
 const ContextTest = () => {
+    const { patientData } = useContext(PatientContext)
   return (
-    <div>your mom</div>
+    <ul>
+        <li>{patientData.firstName}</li>
+    </ul>
   )
 }
 
