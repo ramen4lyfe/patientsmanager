@@ -7,22 +7,22 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 
 
 
-// function UpdateModal () {
-//   const [show, setShow] = useState(false);
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
+function UpdateModal () {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-//   const {id} = useParams();
-//   const [firstName, setFirstName] = useState("");
-//   const [lastName, setLasttName] = useState("");
-//   const [gender, setGender] = useState("");
-//   const [DOB, setDOB] = useState("");
-//   const [age, setAge] = useState("");
-//   const [appointmentType, setAppointmentType] = useState("");
-//   const [discussionTopic, setDiscussionTopic] = useState("");
-//   const [summary, setSummary] = useState("");
-// //   const navigate = useNavigate();
-//   const [errors, setErrors] = useState({});
+  const {id} = useParams();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLasttName] = useState("");
+  const [gender, setGender] = useState("");
+  const [DOB, setDOB] = useState("");
+  const [age, setAge] = useState("");
+  const [appointmentType, setAppointmentType] = useState("");
+  const [discussionTopic, setDiscussionTopic] = useState("");
+  const [summary, setSummary] = useState("");
+//   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     axios
