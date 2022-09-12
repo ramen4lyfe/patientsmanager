@@ -54,6 +54,7 @@ function CreateModal () {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size='xl'
         >
         <Modal.Header closeButton>
             <Modal.Title>Add New Patient</Modal.Title>
