@@ -79,6 +79,7 @@ function UpdateModal () {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size='xl'
         >
         <Modal.Header closeButton>
             <Modal.Title>Update Record</Modal.Title>
