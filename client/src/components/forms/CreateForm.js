@@ -92,7 +92,7 @@ const CreateForm = () => {
                 type="number"
                 placeholder='Age'
                 className="form-control mb-4"
-                // onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => setAge(e.target.value)}
                 // onChange={getAge()}
                 value={age}
             />
