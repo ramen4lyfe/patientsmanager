@@ -31,18 +31,18 @@ const PatientInfo = (props) => {
 //         });
 //     }, []);
 
-    // const value = patientData.map((patient) => 
-    // <ul>
-    //     <li>{patient._id}</li>
-    //     <li>{patient.firstName}</li>
-    //     <li>{patient.lastName}</li>
-    //     <li>{patient.gender}</li>
-    //     <li>{patient.dob}</li>
-    //     <li>{patient.age}</li>
-    //     <li>{patient.appointmentType}</li>
-    //     <li>{patient.discussionTopic}</li>
-    // </ul>
-    // )
+    const value = patientData.map((patient) => 
+    <ul>
+        <li>{patient._id}</li>
+        <li>{patient.firstName}</li>
+        <li>{patient.lastName}</li>
+        <li>{patient.gender}</li>
+        <li>{patient.dob}</li>
+        <li>{patient.age}</li>
+        <li>{patient.appointmentType}</li>
+        <li>{patient.discussionTopic}</li>
+    </ul>
+    )
 
     return (
         <PatientContext.Provider value={{ patientData }}>
