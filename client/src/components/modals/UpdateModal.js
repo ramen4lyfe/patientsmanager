@@ -5,8 +5,6 @@ import axios from 'axios';
 import UpdatePatient from '../UpdatePatient';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
-
-
 function UpdateModal () {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
