@@ -4,3 +4,4 @@
 4. change post dischare to PDC
 5. Auto count age after enter in DOB
 6. DOB to show number instead of normal date format
+7. separate today's list in another tab
