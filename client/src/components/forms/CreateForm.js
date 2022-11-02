@@ -30,17 +30,17 @@ const CreateForm = () => {
     // const navigate = useNavigate(); // cannot use navigate inside a modal
 
     // need to handle submit and post onto list
-    // const handleSubmit = (e) => {
-    // e.preventDefault();
-    // axios.post("http://localhost:8000/api/patient", {firstName, lastName, gender, DOB, age, appointmentType, discussionTopic, summary})
-    //     .then(response => {
-    //         console.log(response);
-    //         navigate("/api/patient/list");
-    //     })
-    //     .catch((err) => {
-    //         console.log(err)
-    //         setErrors(err.response.data.error.errors);
-    //     });
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:8000/api/patient", {firstName, lastName, gender, DOB, age, appointmentType, discussionTopic, summary})
+        .then(response => {
+            console.log(response);
+            navigate("/api/patient/list");
+        })
+        .catch((err) => {
+            console.log(err)
+            setErrors(err.response.data.error.errors);
+        });
 
     
 };
