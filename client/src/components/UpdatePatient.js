@@ -13,7 +13,7 @@ const [age, setAge] = useState("");
 const [appointmentType, setAppointmentType] = useState("");
 const [discussionTopic, setDiscussionTopic] = useState("");
 const [summary, setSummary] = useState("");
-//   const navigate = useNavigate();
+const navigate = useNavigate();
 const [errors, setErrors] = useState({});
 
 useEffect(() => {
@@ -51,7 +51,7 @@ const handleSubmit = (e) => {
     })
     .then((response) => {
         console.log(response);
-    //   navigate("/api/patient/list");
+      navigate("/api/patient/list");
 })
 .catch((err) => {
     console.log(err.response.data.error.errors);
