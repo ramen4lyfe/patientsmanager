@@ -22,7 +22,7 @@ const getAllPatients = (req, res) => {
 };
 const getOnePatient = (req, res) => {
     Patient.findOne({_id: req.params.id})
-    .then((onePatient) => {
+    .then((onePatient) => {``
         res.json(onePatient);
     })
     .catch((err) => {
